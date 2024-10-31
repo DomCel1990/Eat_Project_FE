@@ -1,0 +1,12 @@
+
+<div class="mat-stepper-container">
+  <mat-stepper [linear]="false" #stepper>
+    <mat-step [stepControl]="form.form">
+      <app-step1 #form></app-step1>
+    </mat-step>
+    <mat-step [stepControl]="form2.form" label="Fill out your address">
+      <app-step2 #form2></app-step2>
+      <button mat-button (click)="navigate()">Done</button>
+    </mat-step>
+  </mat-stepper>
+</div>

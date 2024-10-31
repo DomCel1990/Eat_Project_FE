@@ -1,0 +1,16 @@
+.container-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    gap: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+
+.container-card > * {
+    flex: 1 1 calc(50% - 1%);
+    box-sizing: border-box;
+}

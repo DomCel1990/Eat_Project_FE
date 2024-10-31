@@ -1,0 +1,7 @@
+@if (eatAll$ | async; as eats) {
+    <div class="container-card">
+    @for (eat of eats; track $index) {
+            <app-card [eat]="eat"></app-card>
+    }
+    </div>
+}

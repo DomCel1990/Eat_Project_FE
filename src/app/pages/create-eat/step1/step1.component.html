@@ -1,0 +1,50 @@
+<form 
+[formGroup]="form" 
+(ngSubmit)="onSubmit()">
+    <div class="input-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Alimento</mat-label>
+            <input formControlName="name" matInput placeholder="es. Pollo">
+            <mat-icon matSuffix>rice_bowl</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Energia</mat-label>
+            <input type="number" formControlName="energia" matInput>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Carboidrati</mat-label>
+            <input type="number" formControlName="carboidrati" matInput>
+            <mat-icon matSuffix>rice_bowl</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Grassi</mat-label>
+            <input type="number" formControlName="grassi" matInput>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Zuccheri</mat-label>
+            <input type="number" formControlName="zuccheri" matInput>
+            <mat-icon matSuffix>rice_bowl</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Proteine</mat-label>
+            <input type="number" formControlName="proteine" matInput>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Fibre</mat-label>
+            <input type="number" formControlName="fibre" matInput>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+    </div>
+    <div>
+        <button mat-button [color]="'primary'" matStepperNext [disabled]="!form.valid">Next</button>
+    </div>
+</form>
