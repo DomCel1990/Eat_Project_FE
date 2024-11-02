@@ -8,6 +8,7 @@ import { BehaviorSubject, tap } from "rxjs";
 })
 export class PlanDayService {
     plandayObs$ = new BehaviorSubject<Planday>(null);
+    plandayAllObs$ = new BehaviorSubject<Planday[]>(null);
 
     private http = inject(HttpClient);
 
@@ -25,14 +26,19 @@ export class PlanDayService {
 
     getPlanDay() {
         const newDate = new Date().toISOString().slice(0, 10).replace(/-/g, '');
-        console.log(newDate);
-        
+
         const param = new HttpParams()
             .set('date', newDate)
         return this.http.get<Planday>('http://localhost:8080/planday', {
             params: param
         }).pipe(
             tap(response => this.plandayObs$.next(response))
+        );
+    }
+
+    getAllPlanDay() {
+        return this.http.get<Planday[]>('http://localhost:8080/planday/all',).pipe(
+            tap(response => this.plandayAllObs$.next(response))
         );
     }
 }

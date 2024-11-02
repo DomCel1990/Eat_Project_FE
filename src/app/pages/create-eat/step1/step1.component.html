@@ -1,6 +1,4 @@
-<form 
-[formGroup]="form" 
-(ngSubmit)="onSubmit()">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="input-container">
         <mat-form-field appearance="fill">
             <mat-label>Alimento</mat-label>
@@ -11,31 +9,35 @@
         <mat-form-field appearance="fill">
             <mat-label>Energia</mat-label>
             <input type="number" formControlName="energia" matInput>
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-icon matSuffix><span class="material-symbols-outlined">
+                    directions_run
+                </span></mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Carboidrati</mat-label>
             <input type="number" formControlName="carboidrati" matInput>
-            <mat-icon matSuffix>rice_bowl</mat-icon>
+            <mat-icon matSuffix>local_pizza</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Grassi</mat-label>
             <input type="number" formControlName="grassi" matInput>
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-icon matSuffix>ecg_heart</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Zuccheri</mat-label>
             <input type="number" formControlName="zuccheri" matInput>
-            <mat-icon matSuffix>rice_bowl</mat-icon>
+            <mat-icon matSuffix>cake</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Proteine</mat-label>
             <input type="number" formControlName="proteine" matInput>
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-icon matSuffix><span class="material-symbols-outlined">
+                    fitness_center
+                </span> </mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="fill">

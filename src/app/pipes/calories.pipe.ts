@@ -4,9 +4,9 @@ import { Pipe, PipeTransform } from "@angular/core";
     name: 'calories',
     standalone: true,
 })
-export class CaloriesPipe implements PipeTransform{
+export class CaloriesPipe implements PipeTransform {
     transform(value: number) {
-       return `${value} Kcal`;
+        return `${value} Kcal`;
     }
-    
+
 }

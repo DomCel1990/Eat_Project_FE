@@ -1,16 +1,27 @@
 .container-box-graph {
   display: flex;
   padding: 2rem;
-  gap: 4rem;
-  flex-direction: row;
+  gap: 2rem;
   flex-wrap: wrap;
-  align-content: stretch;
   justify-content: center;
+  max-width: 1200px; 
+  margin: 0 auto;
 }
 
+.container-box-graph > * {
+  flex: 1 1 calc(50% - 2rem);
+  box-sizing: border-box;
+  max-width: 500px;
+}
 .form {
   display: grid;
-  gap: 10%;
+  gap: 5%;
   width: 20%;
   padding: 3rem;
+}
+
+p {
+  color: rgb(14 17 81 / 83%);
+  font-size: 20px;
+  font-weight: bold;
 }

@@ -1,7 +1,15 @@
-@if (eatAll$ | async; as eats) {
-    <div class="container-card">
-    @for (eat of eats; track $index) {
-            <app-card [eat]="eat"></app-card>
+@if (eatAllPeageble$ | async; as eats) {
+<mat-paginator class="paginator"
+[length]="eats.totalElements" 
+[pageSize]="eats.pageable.pageSize"
+[pageIndex]="eats.pageable.pageNumber"
+[pageSizeOptions]="[1, 2, 5, 6]"
+(page)="handlePageEvent($event)">
+</mat-paginator>
+
+<div class="container-card">
+    @for (eat of eats.content; track $index) {
+    <app-card [eat]="eat"></app-card>
     }
-    </div>
+</div>
 }

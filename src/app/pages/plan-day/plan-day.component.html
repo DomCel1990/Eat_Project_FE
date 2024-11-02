@@ -1,23 +1,17 @@
 <div class="container-box-graph">
 
-    <form [formGroup]="form"
-        (ngSubmit)="onSubmit()"
-        class="form">
-        <!-- <mat-form-field appearance="fill">
-            <mat-label>Name</mat-label>
-            <input type="text" formControlName="name" matInput>
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        </mat-form-field> -->
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+        <p>Inserisci l'alimento consumato</p>
         <mat-form-field>
             <mat-label>Favorite food</mat-label>
             <mat-select formControlName="name">
-            @if (eatAll$ | async; as eatAll) {
+                @if (eatAll$ | async; as eatAll) {
                 @for (eat of eatAll; track eat) {
                 <mat-option [value]="eat.alimento.name">{{eat.alimento.name}}</mat-option>
-              }
-            }
+                }
+                }
             </mat-select>
-          </mat-form-field>
+        </mat-form-field>
 
         <mat-form-field>
             <mat-label>Choose a date</mat-label>
@@ -29,7 +23,6 @@
         <mat-form-field appearance="fill">
             <mat-label>Grammi</mat-label>
             <input type="number" formControlName="grammi" matInput>
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
 
         <button mat-flat-button color="primary" type="submit">Ok</button>
@@ -37,5 +30,5 @@
     </form>
 
     <app-doughnut></app-doughnut>
-
+    <app-line-graph></app-line-graph>
 </div>

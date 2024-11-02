@@ -6,8 +6,12 @@ import { PlanDayComponent } from './pages/plan-day/plan-day.component';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: '/eat-day',
+        redirectTo: '/plan-day',
         pathMatch: 'full',
+    },
+    {
+        path: 'plan-day',
+        component: PlanDayComponent
     },
     {
         path: 'eat-day',
@@ -16,9 +20,5 @@ export const routes: Routes = [
     {
         path: 'creat-eat',
         component: CreateEatComponent
-    },
-    {
-        path: 'plan-day',
-        component: PlanDayComponent
     },
 ];

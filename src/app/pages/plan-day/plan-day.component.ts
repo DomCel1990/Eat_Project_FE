@@ -6,20 +6,21 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DoughnutComponent } from '../../components/doughnut/doughnut.component';
 import { PlanDayService } from '../../services/plan-day.service';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Planday } from '../../models/plan-day.model';
 import { EatService } from '../../services/eat.service';
 import { AlimentoImage } from '../../models/alimento.model';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+import { LineGraphComponent } from '../../components/line-graph/line-graph.component';
 
 @Component({
   selector: 'app-plan-day',
   standalone: true,
   imports: [
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     CommonModule,
     MatIconModule,
     MatButtonModule,
@@ -28,13 +29,14 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatDatepickerModule,
     DoughnutComponent,
-    MatSelectModule
+    MatSelectModule,
+    LineGraphComponent
   ],
   providers: [provideNativeDateAdapter(), EatService],
   templateUrl: './plan-day.component.html',
   styleUrl: './plan-day.component.css'
 })
-export class PlanDayComponent implements OnInit{
+export class PlanDayComponent implements OnInit {
   form: FormGroup;
   planday$: Observable<Planday>;
   eatAll$: Observable<AlimentoImage[]>;
@@ -45,12 +47,12 @@ export class PlanDayComponent implements OnInit{
 
   constructor() {
     this.eatAll$ = this.eatService.getAllEatsImage();
+
+    this.planDayService.getAllPlanDay().subscribe();
   }
 
   ngOnInit(): void {
     this.planDayService.getPlanDay().subscribe();
-
-    
 
     this.setForm();
   }
@@ -64,9 +66,15 @@ export class PlanDayComponent implements OnInit{
   }
 
   onSubmit() {
-    const {name, date, grammi} = this.form.value;
+    const { name, date, grammi } = this.form.value;
     const newDate = new Date(date).toISOString().slice(0, 10).replace(/-/g, '');
 
-    this.planDayService.addPlanday(name, newDate, grammi).subscribe();   
+    this.planDayService.addPlanday(name, newDate, grammi)
+      .pipe(
+        tap(() => this.planDayService.getAllPlanDay().subscribe()))
+      .subscribe(() => this.form.patchValue({
+        name: null,
+        grammi: null
+      }));
   }
 }

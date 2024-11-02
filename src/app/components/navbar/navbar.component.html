@@ -1,14 +1,23 @@
 <nav>
-   <p>EatProject</p>
-   <ul>
-    <li routerLink="/creat-eat" routerLinkActive="active">
-        Crea Alimento
-    </li>
-    <li routerLink="/eat-day" routerLinkActive="active">
-        Lista alimenti
-    </li>
-    <li routerLink="/plan-day" routerLinkActive="active">
-        Plan
-    </li>
-   </ul>
+    <div>
+        <p>EatProject</p>
+        <ul>
+            <li routerLink="/plan-day" routerLinkActive="active">
+                Plan
+            </li>
+            <li routerLink="/creat-eat" routerLinkActive="active">
+                Crea Alimento
+            </li>
+            <li routerLink="/eat-day" routerLinkActive="active">
+                Lista alimenti
+            </li>
+        </ul>
+    </div>
+    @if (user$ | async; as user) {
+    <div>
+
+        <p>{{user.name}} {{user.surname}}</p>
+
+    </div>
+    }
 </nav>
