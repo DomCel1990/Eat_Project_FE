@@ -1,8 +1,10 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { inject, Inject } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
+
 import { Alimento, AlimentoImage, AlimentoImagePeageble } from "../models/alimento.model";
 import { Image } from "../models/image.model";
-import { BehaviorSubject, map } from "rxjs";
+
 
 @Inject({
     provideIn: 'root'

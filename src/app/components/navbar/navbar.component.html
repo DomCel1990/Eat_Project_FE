@@ -13,11 +13,12 @@
             </li>
         </ul>
     </div>
-    @if (user$ | async; as user) {
-    <div>
-
-        <p>{{user.name}} {{user.surname}}</p>
-
+    <div style="display: flex; gap: 7px;">
+        @if (user$ | async; as user) {
+        <p>{{user.name}} {{user.surname}} - </p>
+        }
+        @if (userBRM$ | async; as brm) {
+        <p>Fabb: {{ brm | calories }}</p>
+        }
     </div>
-    }
 </nav>

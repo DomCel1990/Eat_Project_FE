@@ -1,7 +1,8 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
-import { Planday } from "../models/plan-day.model";
 import { BehaviorSubject, tap } from "rxjs";
+
+import { Planday } from "../models/plan-day.model";
 
 @Injectable({
     providedIn: 'root'

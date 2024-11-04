@@ -2,6 +2,9 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { PlanDayService } from '../../services/plan-day.service';
 import { Planday } from '../../models/plan-day.model';
+import { combineLatest, Observable } from 'rxjs';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user.model';
 Chart.register(...registerables);
 @Component({
   selector: 'app-line-graph',
@@ -12,16 +15,22 @@ Chart.register(...registerables);
 })
 export class LineGraphComponent implements OnInit {
   chartPie: any;
+  maxKcal$: Observable<number>;
 
   private plantDayService = inject(PlanDayService);
+  private userService = inject(UserService);
   
   ngOnInit(): void {
 
-    this.plantDayService.plandayAllObs$.subscribe(response => this.lineChar(response));
+    combineLatest([
+      this.userService.maxKcal,
+      this.plantDayService.plandayAllObs$
+    ])
+    .subscribe(([kcalMax, plan]) => this.lineChar(kcalMax, plan));
     
   }
 
-  lineChar(plantDays: Planday[]) {
+  lineChar(kclaMax: number , plantDays: Planday[]) {
 
     if (!plantDays || plantDays.length === 0) return;
 
@@ -30,6 +39,7 @@ export class LineGraphComponent implements OnInit {
     const dataPlan: number[] = plantDays.map(resp => resp.energiaTotal);
     const dataPlanProtein: number[] = plantDays.map(resp => resp.proteineTotal);
     const dataPlanFat: number[] = plantDays.map(resp => resp.grassiTotal);
+    const dataPlanKcalMax: number[] = plantDays.map(resp => kclaMax);
     const data = {
       labels: labels,
       datasets: [
@@ -38,6 +48,13 @@ export class LineGraphComponent implements OnInit {
           data: dataPlan,
           fill: false,
           borderColor: 'rgba(110, 201, 207, 0.425)',
+          tension: 0.1,
+        },
+        {
+          label: 'Fabbisogno ',
+          data: dataPlanKcalMax,
+          fill: false,
+          borderColor: 'rgba(255, 0, 0, 0.425)',
           tension: 0.1,
         },
         {
