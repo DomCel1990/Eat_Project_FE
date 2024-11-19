@@ -18,7 +18,7 @@ export class PlanDayService {
             .set('name', name)
             .set('date', date)
             .set('grammi', grammi)
-        return this.http.put<Planday>('http://localhost:8080/planday', null, {
+        return this.http.put<Planday>('https://6dd0-2001-b07-646f-b52b-f06d-9b89-eeb7-2974.ngrok-free.app/planday', null, {
             params: param
         }).pipe(
             tap(response => this.plandayObs$.next(response))
@@ -30,7 +30,7 @@ export class PlanDayService {
 
         const param = new HttpParams()
             .set('date', newDate)
-        return this.http.get<Planday>('http://localhost:8080/planday', {
+        return this.http.get<Planday>('https://6dd0-2001-b07-646f-b52b-f06d-9b89-eeb7-2974.ngrok-free.app/planday', {
             params: param
         }).pipe(
             tap(response => this.plandayObs$.next(response))
@@ -38,7 +38,7 @@ export class PlanDayService {
     }
 
     getAllPlanDay() {
-        return this.http.get<Planday[]>('http://localhost:8080/planday/all',).pipe(
+        return this.http.get<Planday[]>('https://6dd0-2001-b07-646f-b52b-f06d-9b89-eeb7-2974.ngrok-free.app/planday/all',).pipe(
             tap(response => this.plandayAllObs$.next(response))
         );
     }

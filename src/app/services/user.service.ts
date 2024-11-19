@@ -14,7 +14,7 @@ export class UserService {
     getUser(userId = 1) {
         const param = new HttpParams()
         .set('id', userId)
-        return this.http.get<User>('http://localhost:8080/user', {
+        return this.http.get<User>('https://6dd0-2001-b07-646f-b52b-f06d-9b89-eeb7-2974.ngrok-free.app/user', {
             params: param
         });
     }
@@ -22,7 +22,7 @@ export class UserService {
     getUserBRM(userId = 1) {
         const param = new HttpParams()
         .set('id', userId)
-        return this.http.get<number>('http://localhost:8080/user/brm', {
+        return this.http.get<number>('https://6dd0-2001-b07-646f-b52b-f06d-9b89-eeb7-2974.ngrok-free.app/user/brm', {
             params: param
         }).pipe(
             tap(res => this.maxKcal.next(res))
