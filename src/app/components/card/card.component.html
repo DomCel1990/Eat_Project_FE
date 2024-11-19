@@ -1,4 +1,4 @@
-<mat-card style="width: 700px; margin-bottom: 1rem;"appearance="outlined">
+<mat-card style="width: 320px; margin-bottom: 1rem;"appearance="outlined">
     <mat-card-header>
       <mat-card-title-group>
         <mat-card-title>{{ eat.alimento.name}}</mat-card-title>
@@ -8,7 +8,7 @@
     </mat-card-header>
     <mat-card-content>
         <p style="font-weight: bolder; color: gray;">Valori nutrizionali per 100g</p>
-        <mat-grid-list cols="5" rowHeight="6:1">
+        <mat-grid-list cols="2" rowHeight="6:1">
             <mat-grid-tile><span>Carboidrati:</span>{{ eat.alimento.carboidrati | grammi }}</mat-grid-tile>
             <mat-grid-tile><span>Grassi:</span>{{ eat.alimento.grassi| grammi }}</mat-grid-tile>
             <mat-grid-tile><span>Fibre:</span>{{ eat.alimento.fibre| grammi }}</mat-grid-tile>

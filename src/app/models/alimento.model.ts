@@ -9,6 +9,7 @@ export interface Alimento {
   zuccheri: number;
   proteine: number;
   fibre: number;
+  grammi?: number;
 }
 
 export interface AlimentoImage {

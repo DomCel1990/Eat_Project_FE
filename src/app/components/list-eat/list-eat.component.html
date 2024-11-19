@@ -1,0 +1,5 @@
+@if (plnaDays$ | async; as planDay) {
+    @for (aliment of planDay.alimentoQuantityDTO; track $index) {
+        <app-card-eat-list [alimento]="aliment"></app-card-eat-list>
+    }
+}

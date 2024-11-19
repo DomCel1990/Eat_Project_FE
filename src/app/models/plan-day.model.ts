@@ -1,3 +1,5 @@
+import { Alimento } from "./alimento.model";
+
 export interface Planday{
     id: number;
     dateLocale: string;
@@ -7,4 +9,5 @@ export interface Planday{
     zuccheriTotal: number;
     proteineTotal: number;
     fibreTotal: number;
+    alimentoQuantityDTO: Alimento[];
 }

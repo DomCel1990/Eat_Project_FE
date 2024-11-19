@@ -15,6 +15,7 @@ import { EatService } from '../../services/eat.service';
 import { AlimentoImage } from '../../models/alimento.model';
 import { MatSelectModule } from '@angular/material/select';
 import { LineGraphComponent } from '../../components/line-graph/line-graph.component';
+import { ListEatComponent } from "../../components/list-eat/list-eat.component";
 
 @Component({
   selector: 'app-plan-day',
@@ -30,8 +31,9 @@ import { LineGraphComponent } from '../../components/line-graph/line-graph.compo
     MatDatepickerModule,
     DoughnutComponent,
     MatSelectModule,
-    LineGraphComponent
-  ],
+    LineGraphComponent,
+    ListEatComponent
+],
   providers: [provideNativeDateAdapter(), EatService],
   templateUrl: './plan-day.component.html',
   styleUrl: './plan-day.component.css'

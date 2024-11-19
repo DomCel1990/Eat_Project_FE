@@ -9,7 +9,7 @@
                 @for (eat of eatAll; track eat) {
                 <mat-option [value]="eat.alimento.name">{{eat.alimento.name}}</mat-option>
                 }
-                }
+            }
             </mat-select>
         </mat-form-field>
 
@@ -30,5 +30,6 @@
     </form>
 
     <app-doughnut></app-doughnut>
+    <app-list-eat></app-list-eat>
     <app-line-graph></app-line-graph>
 </div>

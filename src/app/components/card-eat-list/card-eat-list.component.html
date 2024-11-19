@@ -1,0 +1,11 @@
+<div class="card">
+    <div>
+        <h3 class="title">
+            {{alimento.name}}
+        </h3>
+        <p class="sub-title"><span>Calorie: </span>{{alimento.energia | calories}}</p>
+
+        <p class="sub-title"><span>Quantità: </span> {{alimento.grammi | grammi}}</p>
+    </div>
+    <button mat-fab class="custom-red-button"><mat-icon>delete</mat-icon></button>
+</div>
